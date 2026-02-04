@@ -32,37 +32,40 @@ const About = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Images Grid */}
-          <div className="relative">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
+          <div className="relative pb-8">
+            {/* Mobile: Single column, Desktop: 2 columns */}
+            <div className="flex flex-col sm:grid sm:grid-cols-2 gap-4">
+              <div className="order-1">
                 <img
                   src={clinicExterior}
                   alt="Om Dental Clinic building exterior"
-                  className="rounded-2xl shadow-lg w-full h-48 object-cover"
+                  className="rounded-2xl shadow-lg w-full h-48 sm:h-48 object-cover"
                   loading="lazy"
                 />
-                <div className="bg-primary rounded-2xl p-6 text-primary-foreground">
-                  <p className="font-poppins font-bold text-3xl">10+</p>
-                  <p className="text-sm opacity-90">Years of Excellence</p>
-                </div>
               </div>
-              <div className="pt-8">
+              <div className="order-2 sm:pt-8">
                 <img
                   src={staffImage2}
                   alt="Om Dental Clinic doctor with satisfied patient"
-                  className="rounded-2xl shadow-lg w-full h-72 object-cover"
+                  className="rounded-2xl shadow-lg w-full h-48 sm:h-72 object-cover"
                   loading="lazy"
                 />
               </div>
+              <div className="order-3 sm:order-none">
+                <div className="bg-primary rounded-2xl p-4 sm:p-6 text-primary-foreground">
+                  <p className="font-poppins font-bold text-2xl sm:text-3xl">10+</p>
+                  <p className="text-sm opacity-90">Years of Excellence</p>
+                </div>
+              </div>
             </div>
 
-            {/* Floating badge */}
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-card rounded-2xl px-6 py-3 shadow-lg border border-border flex items-center gap-3">
-              <Shield className="w-8 h-8 text-primary" />
+            {/* Safe badge - static on mobile, floating on desktop */}
+            <div className="mt-4 sm:absolute sm:-bottom-4 sm:left-1/2 sm:-translate-x-1/2 bg-card rounded-2xl px-4 sm:px-6 py-3 shadow-lg border border-border flex items-center gap-3 w-fit mx-auto sm:mx-0">
+              <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
               <div>
-                <p className="font-semibold text-foreground">100% Safe</p>
+                <p className="font-semibold text-foreground text-sm sm:text-base">100% Safe</p>
                 <p className="text-xs text-muted-foreground">Sterilized Equipment</p>
               </div>
             </div>
